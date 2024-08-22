@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Envio de Emails</title>
+		<link rel="stylesheet" href="src/style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<h1>Enviar mails</h1>
+			<div class="form-container">
+				<form id="formulario">
+					<div class="form-group">
+						<label for="email">Email:</label>
+						<input
+							id="email"
+							type="email"
+							name="email"
+							placeholder="Email Destino, Ej: tuEmail@empresa.com"
+						/>
+					</div>
+
+					<div class="form-group">
+						<label for="asunto">Asunto:</label>
+						<input
+							id="asunto"
+							type="text"
+							name="asunto"
+							placeholder="Asunto Email"
+						/>
+					</div>
+
+					<div class="form-group">
+						<label for="mensaje">Mensaje:</label>
+						<textarea
+							id="mensaje"
+							name="mensaje"
+							placeholder="Mensaje de Email"
+						></textarea>
+					</div>
+
+					<div class="button-group">
+						<button type="submit" class="submit-button" disabled>Enviar</button>
+						<button type="reset" class="reset-button">Reset</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script src="main.js"></script>
+	</body>
+</html>
