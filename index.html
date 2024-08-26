@@ -4,8 +4,15 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Simulador de envio de emails" />
+		<link
+			rel="shortcut icon"
+			href="src/img/email-facicon.png"
+			type="image/x-icon"
+		/>
 		<title>Envio de Emails</title>
 		<link rel="stylesheet" href="src/style.css" />
+		<link rel="stylesheet" href="src/spiner.css" />
 	</head>
 	<body>
 		<div class="container">
@@ -46,6 +53,16 @@
 						<button type="reset" class="reset-button">Reset</button>
 					</div>
 				</form>
+				<div id="spinner" class="spinner-container">
+					<div class="sk-chase">
+						<div class="sk-chase-dot"></div>
+						<div class="sk-chase-dot"></div>
+						<div class="sk-chase-dot"></div>
+						<div class="sk-chase-dot"></div>
+						<div class="sk-chase-dot"></div>
+						<div class="sk-chase-dot"></div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<script src="main.js"></script>

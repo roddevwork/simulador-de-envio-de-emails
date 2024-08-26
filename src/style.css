@@ -1,3 +1,7 @@
+:root {
+	--text-color: rgb(253, 253, 253);
+}
+
 body {
 	background-color: #121212;
 	color: #e0e0e0;
@@ -14,17 +18,17 @@ body {
 }
 
 h1 {
+	color: var(--text-color);
 	font-size: 2.5rem;
-	color: #ffffff;
 	text-align: center;
 	margin-bottom: 20px;
 }
 
 .form-container {
 	background-color: #1e1e1e;
-	padding: 20px;
 	border-radius: 8px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+	padding: 20px;
 }
 
 .form-group {
@@ -42,19 +46,28 @@ h1 {
 .form-group textarea {
 	background-color: #2c2c2c;
 	border: 1px solid #555555;
-	padding: 10px;
+	color: var(--text-color);
 	border-radius: 5px;
-	color: #ffffff;
+	padding: 10px;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-	color: #aaaaaa;
+	color: rgb(170, 170, 170);
 }
 
 .form-group textarea {
 	resize: vertical;
 	min-height: 100px;
+}
+.alerta-vacio {
+	margin-top: 5px;
+	padding: 8px;
+	font-size: 1rem;
+	text-align: center;
+	border-radius: 5px;
+	color: var(--text-color);
+	background-color: #cf6679;
 }
 
 .button-group {
@@ -64,28 +77,48 @@ h1 {
 
 .submit-button,
 .reset-button {
-	background-color: #6200ea;
-	color: #ffffff;
 	border: none;
 	padding: 10px 20px;
 	border-radius: 5px;
 	cursor: pointer;
+	color: var(--text-color);
 	transition: background-color 0.3s;
 }
 
-.submit-button:disabled {
-	background-color: #3700b3;
+.submit-button {
+	background-color: #bb86fc;
 	cursor: not-allowed;
+	opacity: 0.5;
 }
 
 .reset-button {
 	background-color: #bb86fc;
+	border: 1px solid;
 }
 
 .reset-button:hover {
 	background-color: #3700b3;
+	border: 2px solid var(--text-color);
 }
 
 .submit-button:hover:not(:disabled) {
 	background-color: #3700b3;
+	border: 2px solid var(--text-color);
+}
+
+.spinner-container {
+	display: none;
+	justify-content: center;
+	margin: 20px;
+}
+.alerta-exito-enviar {
+	background-color: #00b894;
+	color: var(--text-color);
+	padding: 5px;
+	margin-top: 10px;
+	font-size: 0.8rem;
+	font: bold;
+	text-transform: uppercase;
+	text-align: center;
+	border-radius: 2px;
 }
