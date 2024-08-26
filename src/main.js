@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	const inputEmail = document.querySelector('#email')
 	const inputAsunto = document.querySelector('#asunto')
 	const inputMensaje = document.querySelector('#mensaje')
-	// console.log({ inputEmail, inputAsunto, inputMensaje })
 	const formulario = document.querySelector('#formulario')
 	const btnSubmit = document.querySelector(
 		'.button-group button[type="submit"]'
@@ -25,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	formulario.addEventListener('submit', enviarEmail)
 	btnReset.addEventListener('click', resetForm)
 
+	// Funciones
 	function validar(e) {
 		const campo = e.target.id.toUpperCase()
 		if (e.target.value.trim() === '') {
