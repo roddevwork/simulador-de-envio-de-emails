@@ -114,9 +114,9 @@ h1 {
 .alerta-exito-enviar {
 	background-color: #00b894;
 	color: var(--text-color);
-	padding: 5px;
+	padding: 8px;
 	margin-top: 10px;
-	font-size: 0.8rem;
+	font-size: 1rem;
 	font: bold;
 	text-transform: uppercase;
 	text-align: center;

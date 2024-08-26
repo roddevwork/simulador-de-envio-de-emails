@@ -3,12 +3,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	const emailObj = {
 		email: '',
 		asunto: '',
-		mensaje: ''
+		mensaje: '',
+		cc: ''
 	}
 
 	// Seleccionar los elementos de la interfaz
 	const inputEmail = document.querySelector('#email')
 	const inputAsunto = document.querySelector('#asunto')
+	const inputCC = document.querySelector('#cc')
 	const inputMensaje = document.querySelector('#mensaje')
 	const formulario = document.querySelector('#formulario')
 	const btnSubmit = document.querySelector(
@@ -20,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	// Asignar eventos
 	inputEmail.addEventListener('blur', validar)
 	inputAsunto.addEventListener('blur', validar)
+	inputCC.addEventListener('blur', validar)
 	inputMensaje.addEventListener('input', validar)
 	formulario.addEventListener('submit', enviarEmail)
 	btnReset.addEventListener('click', resetForm)
@@ -28,13 +31,29 @@ document.addEventListener('DOMContentLoaded', function () {
 	function validar(e) {
 		const campo = e.target.id.toUpperCase()
 		if (e.target.value.trim() === '') {
-			mostrarAlerta(`El campo ${campo} es obligatorio `, e.target.parentElement)
-			emailObj[e.target.name] = ''
-			comprobarEmail()
+			// No mostrar alerta si el campo es CC y está vacío
+			if (e.target.id !== 'cc') {
+				mostrarAlerta(
+					`El campo ${campo} es obligatorio `,
+					e.target.parentElement
+				)
+				emailObj[e.target.name] = ''
+				comprobarEmail()
+			}
 			return
 		}
 		if (e.target.id === 'email' && !validarEmail(e.target.value)) {
 			mostrarAlerta('El email no es valido', e.target.parentElement)
+			emailObj[e.target.name] = ''
+			comprobarEmail()
+			return
+		}
+		if (
+			e.target.id === 'cc' &&
+			e.target.value.trim() !== '' &&
+			!validarEmail(e.target.value)
+		) {
+			mostrarAlerta('El email de CC no es válido', e.target.parentElement)
 			emailObj[e.target.name] = ''
 			comprobarEmail()
 			return
@@ -76,9 +95,12 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	function comprobarEmail() {
-		// console.log(Object.values(emailObj).includes(''))
-
-		if (Object.values(emailObj).includes('')) {
+		// Verificar solo los campos obligatorios
+		if (
+			emailObj.email === '' ||
+			emailObj.asunto === '' ||
+			emailObj.mensaje === ''
+		) {
 			btnSubmit.style.opacity = '0.5'
 			btnSubmit.style.cursor = 'not-allowed'
 			btnSubmit.disabled = true
@@ -93,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		emailObj.email = ''
 		emailObj.asunto = ''
 		emailObj.mensaje = ''
+		emailObj.cc = ''
 		formulario.reset()
 		comprobarEmail()
 	}
